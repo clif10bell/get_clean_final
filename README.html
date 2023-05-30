@@ -14,14 +14,21 @@ This assignment worked with data from accelerometers or gyroscopes from the Sams
 
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-The course project required the student to create a single R script named run_analysis.R to accomplish five major steps. These steps are described below, along with a description of how the script accomplishes each step. 
+The course project required the student to create a single R script named run_analysis.R to accomplish five major steps. These steps are described below,
+along with a description of how the script accomplishes each step. 
 
-STEP 1. Merge the training and the test sets to create one data set: The script uses fread() from the data.table package to read the training and test data and assign column names. It then combines the two datasets using rbind().  
+STEP 1. Merge the training and the test sets to create one data set: The script uses fread() from the data.table package to read the training and test data and assign column names.
+It then combines the two datasets using rbind().  
 
-STEP 2. Extract only the measurements on the mean and standard deviation for each measurement: The script uses select() from the dplyr package and the combine() helper to extract only the variables with mean() or std() in the variable name.
+STEP 2. Extract only the measurements on the mean and standard deviation for each measurement: The script uses select() from the dplyr package and the combine() helper to extract
+only the variables with mean() or std() in the variable name.
 
-STEP 3. Uses descriptive activity names to name the activities in the data set: The script uses fread() to read in the training and test activity lists, and uses rbind() to combine them. It uses mutate() from the dplyr package to assign descriptive activity names. It then uses cbind() to combine the activity list with the accelerometer data.  
+STEP 3. Uses descriptive activity names to name the activities in the data set: The script uses fread() to read in the training and test activity lists,
+and uses rbind() to combine them. It uses mutate() from the dplyr package to assign descriptive activity names. It then uses cbind() to combine the activity list with the accelerometer data.  
 
-STEP 4. Appropriately labels the data set with descriptive variable names: The accelerometer data already had descriptive variable names from step 1. colnames() was used to rename the variables associated with activity number and activity name.
+STEP 4. Appropriately labels the data set with descriptive variable names: The accelerometer data already had descriptive variable names from step 1. 
+colnames() was used to rename the variables associated with activity number and activity name.
 
-STEP 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject: This step required reading of the training and test subject list with fread(), combination of those datasets with rbind(), and cbind()ing of those data with the accelerometer data. The script uses group_by() to group the data by subject and activity, and then summarize_all() was used to calculate the desired means. write.csv() was used to write the resulting tidy dataset to a file called "Fina_Means.csv".
+STEP 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject:
+This step required reading of the training and test subject list with fread(), combination of those datasets with rbind(), and cbind()ing of those data with the accelerometer data.
+The script uses group_by() to group the data by subject and activity, and then summarize_all() was used to calculate the desired means. write.csv() was used to write the resulting tidy dataset to a file called "Fina_Means.csv".
